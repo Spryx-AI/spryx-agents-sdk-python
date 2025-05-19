@@ -17,7 +17,7 @@ class Agents:
     ) -> dict:
         """List all agents."""
         return await self._client.get(
-            f"{self._base_url}/v1/agents",
+            f"{self._base_url}/agents",
             params={"page": page, "limit": limit, "order": order},
         )
 
@@ -80,14 +80,14 @@ class Agents:
         if metadata:
             payload["metadata"] = metadata
 
-        return await self._client.post(f"{self._base_url}/v1/agents", json=payload)
+        return await self._client.post(f"{self._base_url}/agents", json=payload)
 
     async def get_agent(
         self,
         agent_id: str,
     ) -> dict:
         """Retrieve a specific agent by ID."""
-        return await self._client.get(f"{self._base_url}/v1/agents/{agent_id}")
+        return await self._client.get(f"{self._base_url}/agents/{agent_id}")
 
     async def update_agent(
         self,
@@ -149,7 +149,7 @@ class Agents:
         if metadata:
             payload["metadata"] = metadata
 
-        return await self._client.put(f"{self._base_url}/v1/agents/{agent_id}", json=payload)
+        return await self._client.put(f"{self._base_url}/agents/{agent_id}", json=payload)
 
     async def invoke_agent(
         self,
@@ -165,4 +165,4 @@ class Agents:
         if is_given(chat_id):
             payload["chat_id"] = chat_id
 
-        return await self._client.post(f"{self._base_url}/v1/agents/{agent_id}/invoke", json=payload)
+        return await self._client.post(f"{self._base_url}/agents/{agent_id}/invoke", json=payload)
