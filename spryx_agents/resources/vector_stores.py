@@ -60,7 +60,7 @@ class VectorStores:
         vector_store_id: str,
         file_id: str,
         status: VectorFileStatus,
-        organization_id: str = NOT_GIVEN,
+        organization_id: str,
         failed_reason: str = NOT_GIVEN,
         tokens_size: int = NOT_GIVEN,
     ) -> dict:
