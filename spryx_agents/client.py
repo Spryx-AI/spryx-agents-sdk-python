@@ -14,8 +14,8 @@ class SpryxAgents(SpryxAsyncClient):
         self,
         application_id: str,
         application_secret: str,
-        base_url: str = "https://agents.spryx.ai",
-        iam_base_url: str = "https://iam.spryx.ai",
+        base_url: str = "https://dev-agents.spryx.ai",
+        iam_base_url: str = "https://dev-iam.spryx.ai",
     ):
         super().__init__(
             base_url=base_url,
