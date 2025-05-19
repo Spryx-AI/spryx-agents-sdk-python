@@ -60,6 +60,7 @@ class VectorStores:
         vector_store_id: str,
         file_id: str,
         status: VectorFileStatus,
+        organization_id: str = NOT_GIVEN,
         failed_reason: str = NOT_GIVEN,
         tokens_size: int = NOT_GIVEN,
     ) -> dict:
@@ -75,4 +76,5 @@ class VectorStores:
         return await self._client.put(
             f"/vector-stores/{vector_store_id}/files/{file_id}",
             json=payload,
+            headers={"x-organization-id": organization_id},
         )
