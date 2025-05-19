@@ -14,11 +14,13 @@ class Agents:
         page: int = 1,
         limit: int = 10,
         order: str = "asc",
+        organization_id: str = NOT_GIVEN,
     ) -> dict:
         """List all agents."""
         return await self._client.get(
             f"{self._base_url}agents",
             params={"page": page, "limit": limit, "order": order},
+            headers={"x-organization-id": organization_id},
         )
 
     async def create_agent(
@@ -39,6 +41,7 @@ class Agents:
         metadata: dict = None,
         resources: list = None,
         handoff_rules: list = None,
+        organization_id: str = NOT_GIVEN,
     ) -> dict:
         """Create a new agent."""
         payload = {
@@ -80,14 +83,15 @@ class Agents:
         if metadata:
             payload["metadata"] = metadata
 
-        return await self._client.post(f"{self._base_url}agents", json=payload)
+        return await self._client.post(f"{self._base_url}agents", json=payload, headers={"x-organization-id": organization_id})
 
     async def get_agent(
         self,
         agent_id: str,
+        organization_id: str = NOT_GIVEN,
     ) -> dict:
         """Retrieve a specific agent by ID."""
-        return await self._client.get(f"{self._base_url}agents/{agent_id}")
+        return await self._client.get(f"{self._base_url}agents/{agent_id}", headers={"x-organization-id": organization_id})
 
     async def update_agent(
         self,
@@ -108,6 +112,7 @@ class Agents:
         metadata: dict = None,
         resources: list = None,
         handoff_rules: list = None,
+        organization_id: str = NOT_GIVEN,
     ) -> dict:
         """Update an existing agent."""
         payload = {
@@ -149,13 +154,14 @@ class Agents:
         if metadata:
             payload["metadata"] = metadata
 
-        return await self._client.put(f"{self._base_url}agents/{agent_id}", json=payload)
+        return await self._client.put(f"{self._base_url}agents/{agent_id}", json=payload, headers={"x-organization-id": organization_id})
 
     async def invoke_agent(
         self,
         agent_id: str,
         user_prompt: list,
         chat_id: str = NOT_GIVEN,
+        organization_id: str = NOT_GIVEN,
     ) -> dict:
         """Invoke an agent with a user prompt."""
         payload = {
@@ -165,4 +171,4 @@ class Agents:
         if is_given(chat_id):
             payload["chat_id"] = chat_id
 
-        return await self._client.post(f"{self._base_url}agents/{agent_id}/invoke", json=payload)
+        return await self._client.post(f"{self._base_url}agents/{agent_id}/invoke", json=payload, headers={"x-organization-id": organization_id})
