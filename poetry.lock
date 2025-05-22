@@ -833,14 +833,14 @@ python-ulid = ">=3.0.0,<4.0.0"
 
 [[package]]
 name = "spryx-http"
-version = "0.1.6"
+version = "0.1.7"
 description = "A Python HTTP client library for Spryx services"
 optional = false
 python-versions = ">=3.11"
 groups = ["main"]
 files = [
-    {file = "spryx_http-0.1.6-py3-none-any.whl", hash = "sha256:138d9adf0fcb276949ac2bc4e4a31b2c454762dcbf9ee65d2a20eb58ffe476b8"},
-    {file = "spryx_http-0.1.6.tar.gz", hash = "sha256:a5f43afe2445fd88057b907f00c08fa30ccd30d6abba85e122efda0dac2681c4"},
+    {file = "spryx_http-0.1.7-py3-none-any.whl", hash = "sha256:10f17ae5cc87a96466f833c1973771cad811270a169616828fda8a0b229b5f4c"},
+    {file = "spryx_http-0.1.7.tar.gz", hash = "sha256:a234219ec108876ffb5040df61a807b7682a2f2ffd4c23f36ab8b2e240e67e3e"},
 ]
 
 [package.dependencies]
@@ -1007,4 +1007,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.11"
-content-hash = "8f1c1189b52b5d0b3a2860ed8364e920baa763f79b88ba00625c2e36a91f2714"
+content-hash = "5b45089d4f7f8ff009bb5c9537747d316f47f35ed4c17faed0b841f3cb5f193d"
