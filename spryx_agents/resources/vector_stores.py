@@ -31,14 +31,14 @@ class VectorStores:
             "description": description,
         }
 
-        return await self._client.post("/vector-stores", json=payload)
+        return await self._client.post("/v1/vector-stores", json=payload)
 
     async def get_vector_store(
         self,
         vector_store_id: str,
     ) -> dict:
         """Retrieve a specific vector store by ID."""
-        return await self._client.get(f"/vector-stores/{vector_store_id}")
+        return await self._client.get(f"/v1/vector-stores/{vector_store_id}")
 
     async def add_file_to_vector_store(
         self,
@@ -51,7 +51,7 @@ class VectorStores:
         }
 
         return await self._client.post(
-            f"/vector-stores/{vector_store_id}/files",
+            f"/v1/vector-stores/{vector_store_id}/files",
             json=payload,
         )
 
@@ -74,7 +74,7 @@ class VectorStores:
             payload["tokens_size"] = tokens_size
 
         return await self._client.put(
-            f"/vector-stores/{vector_store_id}/files/{file_id}",
+            f"/v1/vector-stores/{vector_store_id}/files/{file_id}",
             json=payload,
             headers={"x-organization-id": organization_id},
         )
