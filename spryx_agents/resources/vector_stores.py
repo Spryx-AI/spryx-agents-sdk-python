@@ -16,7 +16,7 @@ class VectorStores:
     ) -> dict:
         """List all vector stores."""
         return await self._client.get(
-            "/vector-stores",
+            "/v1/vector-stores",
             params={"page": page, "limit": limit, "order": order},
         )
 
