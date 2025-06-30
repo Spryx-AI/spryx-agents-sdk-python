@@ -78,3 +78,22 @@ class VectorStores:
             json=payload,
             headers={"x-organization-id": organization_id},
         )
+
+    async def process_file_embeddings(
+        self,
+        organization_id: str,
+        vector_store_id: str,
+        file_id: str,
+        dataset: list[str],
+    ) -> dict:
+        """Process file embeddings."""
+        if not dataset:
+            raise ValueError("Dataset is required")
+        
+        payload = {"dataset": dataset}
+
+        return await self._client.post(
+            f"/v1/vector-stores/{vector_store_id}/files/{file_id}/process",
+            json=payload,
+            headers={"x-organization-id": organization_id},
+        )
