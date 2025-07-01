@@ -7,6 +7,7 @@ from spryx_agents.resources.credentials import Credentials
 from spryx_agents.resources.embedding_usages import EmbeddingUsages
 from spryx_agents.resources.files import Files
 from spryx_agents.resources.integrations import Integrations
+from spryx_agents.resources.org_config import OrgConfig
 from spryx_agents.resources.vector_stores import VectorStores
 
 
@@ -33,3 +34,4 @@ class SpryxAgents(SpryxAsyncClient):
         self.integrations = Integrations(self)
         self.vector_stores = VectorStores(self)
         self.embedding_usages = EmbeddingUsages(self)
+        self.org_config = OrgConfig(self)

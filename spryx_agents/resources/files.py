@@ -1,4 +1,3 @@
-from spryx_core import NOT_GIVEN, is_given
 from spryx_http import SpryxAsyncClient
 
 
